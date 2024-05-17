@@ -1,5 +1,8 @@
 <?php
 
+// deny acess to app files and folders access.
+defined('ROOTPATH') or exit('Access Denied!');
+
 spl_autoload_register(function ($classname) {
     require $filename = "../".$classname.".php";
 });

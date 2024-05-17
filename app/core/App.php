@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+// deny acess to app files and folders access.
+defined('ROOTPATH') or exit('Access Denied!');
 // use app\controllers\NotFound404;
 
 class App
@@ -66,7 +68,6 @@ class App
 
             }
         }
-        show($URL);
         call_user_func_array([$controller, $this -> method], $URL);
 
     }

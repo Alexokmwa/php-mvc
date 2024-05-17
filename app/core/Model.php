@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+// deny acess to app files and folders access.
+defined('ROOTPATH') or exit('Access Denied!');
 use app\core\Database;
 
 trait Model
@@ -13,7 +15,7 @@ trait Model
     protected $order_Column = "id";
     public function findAll()
     {
-        
+
         $query = " select *from $this->table order by $this->order_Column $this->order_type limit $this->limit offset $this->offset";
         // echo $query;
         return $this -> query($query);
@@ -63,9 +65,9 @@ trait Model
     public function insert($data)
     {
         //remove unwanted data
-        if(!empty($this->allowedColumns)){
-            foreach ($data as $key => $value){
-                if(!in_array($key, $this->allowedcolumns)){
+        if(!empty($this->allowedColumns)) {
+            foreach ($data as $key => $value) {
+                if(!in_array($key, $this->allowedcolumns)) {
                     unset($data[$key]);
                 }
             }
@@ -80,11 +82,11 @@ trait Model
 
     public function update($id, $data, $idColumn = 'id')
     {
-        
+
         //remove unwanted data
-        if(!empty($this->allowedColumns)){
-            foreach ($data as $key => $value){
-                if(!in_array($key, $this->allowedcolumns)){
+        if(!empty($this->allowedColumns)) {
+            foreach ($data as $key => $value) {
+                if(!in_array($key, $this->allowedcolumns)) {
                     unset($data[$key]);
                 }
             }

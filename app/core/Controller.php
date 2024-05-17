@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+// deny acess to app files and folders access.
+defined('ROOTPATH') or exit('Access Denied!');
 class Controller
 {
     public function view($name)
