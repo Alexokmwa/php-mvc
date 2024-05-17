@@ -6,7 +6,7 @@
  * Gets and sets data in the POST and GET global variables
  */
 
-namespace app\Core;
+namespace app\models;
 
 defined('ROOTPATH') or exit('Access Denied!');
 

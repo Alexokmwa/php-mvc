@@ -3,6 +3,7 @@
 // deny acess to app files and folders access.
 defined('ROOTPATH') or exit('Access Denied!');
 
+use app\models\Session;
 
 /** check which php extensions are required **/
 check_extensions();
@@ -84,7 +85,7 @@ function get_pagination_vars(): array
 /** saves or displays a saved message to the user **/
 function message(string $msg = null, bool $clear = false)
 {
-    $ses 	= new app\Core\Session();
+    $ses 	= new Session();
 
     if(!empty($msg)) {
         $ses->set('message', $msg);

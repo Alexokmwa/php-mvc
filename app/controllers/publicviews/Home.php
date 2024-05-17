@@ -6,7 +6,6 @@ namespace app\controllers;
 defined('ROOTPATH') or exit('Access Denied!');
 
 use app\core\Controller;
-use app\models\User;
 
 class Home extends Controller
 {
