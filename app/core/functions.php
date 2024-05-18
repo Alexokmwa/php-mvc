@@ -4,6 +4,7 @@
 defined('ROOTPATH') or exit('Access Denied!');
 
 use app\models\Session;
+use app\models\Image;
 
 /** check which php extensions are required **/
 check_extensions();
@@ -38,22 +39,25 @@ function check_extensions()
     }
 }
 
+
 function show($stuff)
 {
     echo "<pre>";
     print_r($stuff);
-    echo "<pre>";
+    echo "</pre>";
 }
 
 function esc($str)
 {
     return htmlspecialchars($str);
 }
+
 function redirect($path)
 {
     header("Location: " . ROOT."/".$path);
     die;
 }
+
 /** load image. if not exist, load placeholder **/
 function get_image(mixed $file = '', string $type = 'post'): string
 {
@@ -64,12 +68,13 @@ function get_image(mixed $file = '', string $type = 'post'): string
     }
 
     if($type == 'user') {
-        return ROOT."/assets/images/user.jpg";
+        return ROOT."/assets/images/user.webp";
     } else {
         return ROOT."/assets/images/no_image.jpg";
     }
 
 }
+
 
 /** returns pagination links **/
 function get_pagination_vars(): array
@@ -82,6 +87,8 @@ function get_pagination_vars(): array
 
     return $vars;
 }
+
+
 /** saves or displays a saved message to the user **/
 function message(string $msg = null, bool $clear = false)
 {
@@ -101,6 +108,7 @@ function message(string $msg = null, bool $clear = false)
 
     return false;
 }
+
 /** return URL variables **/
 function URL($key): mixed
 {
@@ -131,9 +139,9 @@ function URL($key): mixed
     }
 
 }
-//retains user data in checkboxes,etc after page refreshes
-/** displays input values after a page refresh **/
 
+
+/** displays input values after a page refresh **/
 function old_checked(string $key, string $value, string $default = ""): string
 {
 
@@ -161,6 +169,7 @@ function old_value(string $key, mixed $default = "", string $mode = 'post'): mix
 
     return $default;
 }
+
 function old_select(string $key, mixed $value, mixed $default = "", string $mode = 'post'): mixed
 {
     $POST = ($mode == 'post') ? $_POST : $_GET;
@@ -174,11 +183,14 @@ function old_select(string $key, mixed $value, mixed $default = "", string $mode
 
     return "";
 }
+
 /** returns a user readable date format **/
 function get_date($date)
 {
     return date("jS M, Y", strtotime($date));
 }
+
+
 /** comverts image paths from relative to absolute **/
 function add_root_to_images($contents)
 {
@@ -215,7 +227,7 @@ function remove_images_from_content($content, $folder = "uploads/")
 
     if(is_array($matches) && count($matches) > 0) {
 
-        $image_class = new app\models\Image();
+        $image_class = new Image();
         foreach ($matches[0] as $match) {
 
             if(strstr($match, "http")) {

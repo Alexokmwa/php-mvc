@@ -10,6 +10,8 @@ class NotFound404 extends Controller
 {
     public function index()
     {
-        echo  "404 error page not found";
+        $this->view('404');
+
+        // echo  "404 error page not found";
     }
 }

@@ -6,6 +6,9 @@ namespace app\core;
 defined('ROOTPATH') or exit('Access Denied!');
 use app\core\Database;
 
+/**
+ * Main Model trait
+ */
 trait Model
 {
     use Database;

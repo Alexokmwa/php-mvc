@@ -9,6 +9,9 @@ use app\core\Controller;
 use app\models\User;
 use app\models\Request;
 
+/**
+ * signup class
+ */
 class Signup extends Controller
 {
     public function index()

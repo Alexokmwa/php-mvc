@@ -8,6 +8,9 @@ use app\core\Model;
 
 use app\models\Session;
 
+/**
+ * User class
+ */
 class User
 {
     use Model;

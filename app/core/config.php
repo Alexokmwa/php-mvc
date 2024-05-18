@@ -23,4 +23,4 @@ if($_SERVER['SERVER_NAME'] === 'localhost') {
 define('APP_NAME', 'Mark nyamita');
 define('APP_DESCRIPTION', 'Mark nyamita campaign platform');
 //true shows errors
-define('DEBUG', 'true');
+define('DEBUG', true);
